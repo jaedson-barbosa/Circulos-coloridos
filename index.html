@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @font-face {
+            font-family: Dancing;
+            src: url(Dancing.ttf);
+        }
+
+        @font-face {
+            font-family: Bebas;
+            src: url(Bebas.ttf);
+        }
+
+        @font-face {
+            font-family: Cursiva;
+            src: url(Cursive.ttf);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-weight: 900;
+        }
+
+        div {
+            border-radius: 100%;
+            display: inline-block;
+            border: 0.15cm solid;
+            width: 3cm;
+            height: 3cm;
+            margin: 0.5cm;
+            text-align: center;
+            font-size: 2.5cm;
+            line-height: 2.5cm;
+        }
+
+        .grande {
+            width: 8.5cm;
+            height: 8.5cm;
+            font-size: 7cm;
+            line-height: 7.5cm;
+            border-width: 0.3cm;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const letras = 'abcdefghijklmnopqrstuvwxyz'.split('')
+        colors = [ "6b5b95", "feb236", "d64161", "ff7b25",
+             "3e4444", "82b74b", "405d27", "c1946a" ]
+        function imprime(conteudo, fonte, aux = '') {        
+            document.body.innerHTML += conteudo.map((v,i) => `<div ${aux} style="font-family: ${fonte}; color:#${colors[i%colors.length]}">${v}</div>`).join('')
+        }
+        const fullLetras = letras.concat(letras.map(v => v.toUpperCase()))
+        imprime(fullLetras, 'Dancing')
+        imprime(fullLetras, 'Cursive')
+        imprime([1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10], 'Dancing', 'class="grande"')
+    </script>
+</body>
+
+</html>
